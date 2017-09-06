@@ -7,7 +7,7 @@
         <div class="col-sm-6">
             <ol>
                 {{#each burgers}}
-                    {{#if this.devoured}}
+                    {{#unless devoured}}
                         <li>
                             {{this.burger_name}}
 
@@ -18,14 +18,15 @@
 
                             {{> burgers/delete-burger}}
                         </li>
-                    {{/if}}
+                    {{/unless}}
                 {{/each}}        
             </ol>
-        </div><!--burgers list-->
+        </div>
+
         <div class="col-sm-6">
             <ol>
                 {{#each burgers}}
-                    {{#unless this.devoured}}
+                    {{#if this.devoured}}
                         <li>
                             {{this.burger_name}}
 
@@ -33,11 +34,12 @@
                                 <input type="hidden" name="devoured" value="true">
                             </form>
                         </li>
-                    {{/unless}} 
+                    {{/if}} 
                 {{#each}}         
             </ol>
-        </div><!--devoured burgers-->
-    </div><!--row-->
+        </div>
+    </div>
+
     <div class="row">
         <h2>Add a Burger</h2>
         <form class="create-update-form" action="/" method="POST">
@@ -49,5 +51,6 @@
 
             <button type="submit">Add Burger</button>
         </form>
-    </div><!--row-->
-</div><!--container-->
+    </div>
+
+</div>
