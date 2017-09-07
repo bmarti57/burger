@@ -1,3 +1,21 @@
 body {
     background: #00a3ff;
 }
+
+.smaller-image {
+    width: 200px;
+    height: 200px;
+}
+
+h1, h2, ul, label, p {
+    text-align: center;
+    color: white;
+}
+
+.form-group {
+    text-align: center;
+}
+
+image {
+    align-items: center;
+}

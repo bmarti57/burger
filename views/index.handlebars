@@ -1,42 +1,39 @@
-<img src="../public/assets/burger.png" alt="hamburger">
-
 <h1>Eat-da-Burger</h1>
+<img class="smaller-image center-block" src="/assets/images/burger.png" alt="hamburger">
 
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <ol>
+            <h2>My Burgers</h2>
+            <ul>
                 {{#each burgers}}
-                    {{#unless devoured}}
+                    {{#unless this.devoured}}
                         <li>
-                            {{this.burger_name}}
+                            <p>{{this.name}}</p>
 
-                            <form action="/{{this.id}}?method=PUT" method="POST">
-                                <input type="hidden" name="devoured" value="false">
-                                <button type="submit">DEVOUR</button>
+                            <form action="/{{this.id}}?_method=PUT" method="POST">
+                                <input type="hidden" name="devoured" value="true">
+                                <button class="btn btn-danger" type="submit">DEVOUR</button>
                             </form>
 
-                            {{> burgers/delete-burger}}
                         </li>
                     {{/unless}}
                 {{/each}}        
-            </ol>
+            </ul>
         </div>
 
         <div class="col-sm-6">
-            <ol>
+            <h2>Devoured Burgers</h2>
+            <ul>
                 {{#each burgers}}
                     {{#if this.devoured}}
                         <li>
-                            {{this.burger_name}}
+                            <p>{{this.name}}</p>
 
-                            <form action="/{{this.id}}?method=PUT" method="POST">
-                                <input type="hidden" name="devoured" value="true">
-                            </form>
                         </li>
                     {{/if}} 
                 {{/each}}         
-            </ol>
+            </ul>
         </div>
     </div>
 
@@ -46,10 +43,10 @@
             
             <div class="form-group">
                 <label for="ca">Burger Name:</label>
-                <input type="text" id="ca" name="name">
+                <input type="text" name="name">
+                <button type="submit">Add Burger</button>
             </div>
 
-            <button type="submit">Add Burger</button>
         </form>
     </div>
 

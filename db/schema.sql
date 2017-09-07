@@ -5,7 +5,7 @@ USE burger_db;
 CREATE TABLE burgers
 (
 id INT NOT NULL AUTO_INCREMENT,
-burger_name VARCHAR(255) NOT NULL,
+name VARCHAR(255) NOT NULL,
 devoured BOOLEAN DEFAULT FALSE,
 burger_date TIMESTAMP,
 primary key (id) 
